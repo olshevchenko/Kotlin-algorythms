@@ -135,7 +135,7 @@ fun drawSnake(_size: Int): Array<Array<Int>> {
 }
 
 
-fun main(args: Array<String>) {
+fun main() {
     val matrixSize = 9
     println("==========================")
     println("Gonna draw snake in matrix [$matrixSize x $matrixSize]..")
@@ -144,12 +144,10 @@ fun main(args: Array<String>) {
     println("==========================")
     println("==========================")
     println("Got snake [$matrixSize x $matrixSize]:")
-    var formattedCellValue:String
-    for (i in 0 until matrixSize) {
-        for (j in 0 until matrixSize) {
-            formattedCellValue = String.format("%3d  ", matrix[i][j]) ;
-            print("$formattedCellValue")
-        }
+
+    for (line in matrix) {
+        line.map {String.format("%3d  ", it)}
+            .forEach {print(it)}
         println()
     }
 }
